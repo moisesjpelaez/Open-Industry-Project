@@ -23,10 +23,10 @@ transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.055)
 [node name="SideGuard2" parent="SideGuards" instance=ExtResource("4_u2h7b")]
 transform = Transform3D(-4, 0, -1.50996e-07, 0, 1, 0, 6.03983e-07, 0, -1, 0, 0.45, -0.055)
 
-[node name="LegStands" type="Node3D" parent="."]
+[node name="LegStandEnds" type="Node3D" parent="."]
 
-[node name="LegsStandBC" parent="LegStands" instance=ExtResource("2_ndl2h")]
+[node name="LegsStandBC" parent="LegStandEnds" instance=ExtResource("2_ndl2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
 
-[node name="LegsStandBC2" parent="LegStands" instance=ExtResource("2_ndl2h")]
+[node name="LegsStandBC2" parent="LegStandEnds" instance=ExtResource("2_ndl2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
