@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bki7l72b8wpi2"]
+
+[ext_resource type="Script" path="res://src/ConveyorAssembly/ConveyorAssembly.cs" id="1_ffr1w"]
+[ext_resource type="PackedScene" uid="uid://dm55h6ap605bw" path="res://parts/BeltConveyor.tscn" id="1_no5g8"]
+[ext_resource type="PackedScene" uid="uid://cr8u3bta0skiy" path="res://parts/ConveyorLegBC.tscn" id="2_ndl2h"]
+[ext_resource type="PackedScene" uid="uid://dvjrx5crpqs5f" path="res://parts/SideGuard.tscn" id="4_u2h7b"]
+
+[node name="BeltConveyorAssembly" type="Node3D"]
+script = ExtResource("1_ffr1w")
+
+[node name="Conveyor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Conveyor" parent="Conveyor" instance=ExtResource("1_no5g8")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.378, 0)
+
+[node name="SideGuards" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="SideGuard" parent="SideGuards" instance=ExtResource("4_u2h7b")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.055)
+
+[node name="SideGuard2" parent="SideGuards" instance=ExtResource("4_u2h7b")]
+transform = Transform3D(-4, 0, -1.50996e-07, 0, 1, 0, 6.03983e-07, 0, -1, 0, 0.45, -0.055)
+
+[node name="LegStands" type="Node3D" parent="."]
+
+[node name="LegsStandBC" parent="LegStands" instance=ExtResource("2_ndl2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="LegsStandBC2" parent="LegStands" instance=ExtResource("2_ndl2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
