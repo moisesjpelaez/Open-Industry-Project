@@ -44,5 +44,9 @@ public partial class ConveyorAssembly : Node3D
 		legStandEndR.Scale = Scale;
 		legStandEndR.Position = new Vector3(-(Scale.X * 0.5f + legEndsOffset), 0, 0);
 		// TODO: spawn new legs depending on scale
+		
+		// TODO: set proper legs rotation
+		
+		// TODO: set proper legs height based on Z rotation and their local position 
 	}
 }
