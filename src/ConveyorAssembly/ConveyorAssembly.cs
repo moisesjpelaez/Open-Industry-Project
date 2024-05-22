@@ -106,6 +106,7 @@ public partial class ConveyorAssembly : Node3D
 		foreach(ConveyorLeg leg in legStandEndsContainer.GetChildren())
 		{
 			leg.GrabsRotation = RotationDegrees.Z;
+			leg.RotationDegrees = new Vector3(0, 0, -RotationDegrees.Z);
 		}
 		
 		// TODO: set proper legs height based on Z rotation and their local position 
