@@ -8,7 +8,7 @@ public partial class BeltConveyor : Node3D, IConveyor
 	private bool enableComms;
 
 	[Export]
-	private bool EnableComms
+	public bool EnableComms
 	{
 		get => enableComms;
 		set
@@ -24,7 +24,7 @@ public partial class BeltConveyor : Node3D, IConveyor
 	
 	Color beltColor = new Color(1, 1, 1, 1);
 	[Export]
-	Color BeltColor
+	public Color BeltColor
 	{
 		get
 		{

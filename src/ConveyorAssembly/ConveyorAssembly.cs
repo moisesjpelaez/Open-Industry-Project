@@ -4,6 +4,62 @@ using System;
 [Tool]
 public partial class ConveyorAssembly : Node3D
 {
+	bool enableComms = false;
+	[Export] bool EnableComms 
+	{
+		get 
+		{ 
+			return enableComms; 
+		}
+		set 
+		{
+			enableComms = value;
+			if (conveyor != null) conveyor.EnableComms = enableComms;
+		}
+	}
+	
+	Color beltColor = new Color(1, 1, 1, 1);
+	[Export] Color BeltColor 
+	{
+		get
+		{
+			return beltColor;
+		}
+		set
+		{
+			beltColor = value;
+			if (conveyor != null) conveyor.BeltColor = beltColor;
+		}
+	}
+	
+	BeltConveyor.ConvTexture beltTexture = BeltConveyor.ConvTexture.Standard;
+	[Export] public BeltConveyor.ConvTexture BeltTexture
+	{
+		get
+		{
+			return beltTexture;
+		}
+		set
+		{
+			beltTexture = value;
+			if (conveyor != null) conveyor.BeltTexture = beltTexture;
+		}
+	}
+	
+	float speed = -2;
+	[Export] float Speed
+	{
+		get
+		{
+			return speed;
+		}
+		set
+		{
+			speed = value;
+			if (conveyor != null) conveyor.Speed = speed;
+		}
+	}
+	
 	Node3D conveyorContainer;
 	BeltConveyor conveyor;
 	Node3D sideGuardsContainer;
@@ -43,9 +99,14 @@ public partial class ConveyorAssembly : Node3D
 		legStandEndL.Position = new Vector3(Scale.X * 0.5f + legEndsOffset, 0, 0);
 		legStandEndR.Scale = Scale;
 		legStandEndR.Position = new Vector3(-(Scale.X * 0.5f + legEndsOffset), 0, 0);
+		
 		// TODO: spawn new legs depending on scale
 		
 		// TODO: set proper legs rotation
+		foreach(ConveyorLeg leg in legStandEndsContainer.GetChildren())
+		{
+			leg.GrabsRotation = RotationDegrees.Z;
+		}
 		
 		// TODO: set proper legs height based on Z rotation and their local position 
 	}
