@@ -4,6 +4,10 @@ using System;
 [Tool]
 public partial class ConveyorAssembly : Node3D
 {
+	PackedScene segmentScene = (PackedScene)ResourceLoader.Load("res://parts/ConveyorLegBC.tscn");
+	
+	int spawnFactor = 4;
+	
 	bool enableComms = false;
 	[Export] bool EnableComms 
 	{
@@ -100,9 +104,8 @@ public partial class ConveyorAssembly : Node3D
 		legStandEndR.Scale = Scale;
 		legStandEndR.Position = new Vector3(-(Scale.X * 0.5f + legEndsOffset), 0, 0);
 		
-		// TODO: spawn new legs depending on scale
 		
-		// TODO: set proper legs rotation
+		
 		foreach(ConveyorLeg leg in legStandEndsContainer.GetChildren())
 		{
 			leg.GrabsRotation = RotationDegrees.Z;
@@ -110,5 +113,15 @@ public partial class ConveyorAssembly : Node3D
 		}
 		
 		// TODO: set proper legs height based on Z rotation and their local position 
+	}
+	
+	void SpawnLegs()
+	{
+		
+	}
+	
+	void RemoveLegs()
+	{
+		
 	}
 }
